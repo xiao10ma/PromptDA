@@ -31,16 +31,14 @@ sudo apt install ffmpeg  # for video generation
 </details>
 <details> <summary> Pre-trained Models </summary>
 
-We provide **3 models** for metric depth estimation:
-
 | Model | Params | Checkpoint |
 |:-|-:|:-:|
-| Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits/resolve/main/model.ckpt) |
-| Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits_transparent/resolve/main/model.ckpt) |
+<!-- | Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits/resolve/main/model.ckpt) | -->
+<!-- | Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits_transparent/resolve/main/model.ckpt) | -->
 | Prompt-Depth-Anything-Large | 340M | [Download](https://huggingface.co/depth-anything/promptda_vitl/resolve/main/model.ckpt) |
 
-Only Prompt-Depth-Anything-Large is used to benchmark in our paper.
-Prompt-Depth-Anything-Small-Transparent is further fine-tuned 10K steps with [hammer dataset](https://github.com/Junggy/HAMMER-dataset) with our iPhone lidar simulation method to improve the performance on transparent objects.
+<!-- Only Prompt-Depth-Anything-Large is used to benchmark in our paper. -->
+<!-- Prompt-Depth-Anything-Small-Transparent is further fine-tuned 10K steps with [hammer dataset](https://github.com/Junggy/HAMMER-dataset) with our iPhone lidar simulation method to improve the performance on transparent objects. -->
 
 </details>
 
@@ -80,7 +78,7 @@ export PATH_TO_ZIP_FILE=data/8b98276b0a.zip # Replace with your own zip file pat
 export PATH_TO_SAVE_FOLDER=data/8b98276b0a_results # Replace with your own save folder path
 python3 -m promptda.scripts.infer_stray_scan --input_path ${PATH_TO_ZIP_FILE} --output_path ${PATH_TO_SAVE_FOLDER}
 python3 -m promptda.scripts.generate_video process_stray_scan --input_path ${PATH_TO_ZIP_FILE} --result_path ${PATH_TO_SAVE_FOLDER}
-ffmpeg -framerate 60 -i ${PATH_TO_SAVE_FOLDER}/%06d_vis_smooth.jpg  -c:v libx264 -pix_fmt yuv420p ${PATH_TO_SAVE_FOLDER}.mp4
+ffmpeg -framerate 60 -i ${PATH_TO_SAVE_FOLDER}/%06d_smooth.jpg  -c:v libx264 -pix_fmt yuv420p ${PATH_TO_SAVE_FOLDER}.mp4
 ```
 </details>
 
