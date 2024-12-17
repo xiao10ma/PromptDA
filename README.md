@@ -34,11 +34,10 @@ sudo apt install ffmpeg  # for video generation
 | Model | Params | Checkpoint |
 |:-|-:|:-:|
 | Prompt-Depth-Anything-Large | 340M | [Download](https://huggingface.co/depth-anything/promptda_vitl/resolve/main/model.ckpt) |
-<!-- | Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits/resolve/main/model.ckpt) | -->
-<!-- | Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits_transparent/resolve/main/model.ckpt) | -->
+| Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits/resolve/main/model.ckpt) |
+| Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits_transparent/resolve/main/model.ckpt) |
 
-<!-- Only Prompt-Depth-Anything-Large is used to benchmark in our paper. -->
-<!-- Prompt-Depth-Anything-Small-Transparent is further fine-tuned 10K steps with [hammer dataset](https://github.com/Junggy/HAMMER-dataset) with our iPhone lidar simulation method to improve the performance on transparent objects. -->
+Only Prompt-Depth-Anything-Large is used to benchmark in our paper. Prompt-Depth-Anything-Small-Transparent is further fine-tuned 10K steps with [hammer dataset](https://github.com/Junggy/HAMMER-dataset) with our iPhone lidar simulation method to improve the performance on transparent objects.
 
 </details>
 
