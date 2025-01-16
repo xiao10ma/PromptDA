@@ -53,7 +53,7 @@ def main(input_path: str = 'data/8b98276b0a.zip',
     rgbs, prompt_depths = load_data(input_path, max_size)
     results = []
     DEVICE = 'cuda'
-    model = PromptDA.from_pretrained("depth-anything/promptda_vitl").to(DEVICE).eval()
+    model = PromptDA.from_pretrained("depth-anything/prompt-depth-anything-vitl").to(DEVICE).eval()
     for frame_idx, (rgb, prompt_depth) in tqdm(enumerate(zip(rgbs, prompt_depths)), desc='Inferring', total=len(rgbs)):
         rgb, prompt_depth = rgb.to(DEVICE), prompt_depth.to(DEVICE)
         depth = model.predict(rgb, prompt_depth)

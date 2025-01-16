@@ -17,7 +17,7 @@
 ![teaser](assets/teaser.gif)
 
 
-## Installation
+## 🛠️ Installation
 
 <details> <summary> Setting up the environment </summary>
 
@@ -33,16 +33,16 @@ sudo apt install ffmpeg  # for video generation
 
 | Model | Params | Checkpoint |
 |:-|-:|:-:|
-| Prompt-Depth-Anything-Large | 340M | [Download](https://huggingface.co/depth-anything/promptda_vitl/resolve/main/model.ckpt) |
-| Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits/resolve/main/model.ckpt) |
-| Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/promptda_vits_transparent/resolve/main/model.ckpt) |
+| Prompt-Depth-Anything-Large | 340M | [Download](https://huggingface.co/depth-anything/prompt-depth-anything-vitl/resolve/main/model.ckpt) |
+| Prompt-Depth-Anything-Small | 25.1M | [Download](https://huggingface.co/depth-anything/prompt-depth-anything-vits/resolve/main/model.ckpt) |
+| Prompt-Depth-Anything-Small-Transparent | 25.1M | [Download](https://huggingface.co/depth-anything/prompt-depth-anything-vits-transparent/resolve/main/model.ckpt) |
 
 Only Prompt-Depth-Anything-Large is used to benchmark in our paper. Prompt-Depth-Anything-Small-Transparent is further fine-tuned 10K steps with [hammer dataset](https://github.com/Junggy/HAMMER-dataset) with our iPhone lidar simulation method to improve the performance on transparent objects.
 
 </details>
 
 
-## Usage
+## 🚀 Usage
 <details> <summary> Example usage </summary>
 
 ```python
@@ -55,7 +55,7 @@ prompt_depth_path = "assets/example_images/arkit_depth.png"
 image = load_image(image_path).to(DEVICE)
 prompt_depth = load_depth(prompt_depth_path).to(DEVICE) # 192x256, ARKit LiDAR depth in meters
 
-model = PromptDA.from_pretrained("depth-anything/promptda_vitl").to(DEVICE).eval()
+model = PromptDA.from_pretrained("depth-anything/prompt-depth-anything-vitl").to(DEVICE).eval()
 depth = model.predict(image, prompt_depth) # HxW, depth in meters
 
 save_depth(depth, prompt_depth=prompt_depth, image=image)
@@ -63,7 +63,7 @@ save_depth(depth, prompt_depth=prompt_depth, image=image)
 </details>
 
 
-## Running on your own capture
+## 📸 Running on your own capture
 
 You can use [Stray Scanner App](https://apps.apple.com/us/app/stray-scanner/id1557051662) to capture your own data, which requires iPhone 12 Pro or later Pro models, iPad 2020 Pro or later Pro models. We setup a [Hugging Face Space](https://huggingface.co/spaces/depth-anything/PromptDA) for you to quickly test our model. If you want to obtain video results, please follow the following steps.
 
@@ -82,10 +82,10 @@ ffmpeg -framerate 60 -i ${PATH_TO_SAVE_FOLDER}/%06d_smooth.jpg  -c:v libx264 -pi
 </details>
 
 
-## Acknowledgements
+## 👏 Acknowledgements
 We thank the generous support from Prof. [Weinan Zhang](https://wnzhang.net/) for robot experiments, including the space, objects and the Unitree H1 robot. We also thank [Zhengbang Zhu](https://scholar.google.com/citations?user=ozatRA0AAAAJ), Jiahang Cao, Xinyao Li, Wentao Dong for their help in setting up the robot platform and collecting robot data.
 
-## Citation
+## 📚 Citation
 If you find this code useful for your research, please use the following BibTeX entry
 ```
 @inproceedings{lin2024promptda,
