@@ -22,8 +22,10 @@ class PromptDA(nn.Module):
 
         self.encoder = encoder
         self.model_config = model_config
+        module_path = Path(__file__) # From anywhere else: module_path = Path(inspect.getfile(PromptDA))
+        package_base_dir = str(Path(*module_path.parts[:-2])) # extract path to PromptDA module, then resolve to repo base dir for dinov2 load
         self.pretrained = torch.hub.load(
-            'torchhub/facebookresearch_dinov2_main',
+            f'{package_base_dir}/torchhub/facebookresearch_dinov2_main',
             'dinov2_{:}14'.format(encoder),
             source='local',
             pretrained=False)
