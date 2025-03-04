@@ -12,7 +12,7 @@
 [Jiashi Feng](https://scholar.google.com/citations?user=Q8iay0gAAAAJ),
 [Xiaowei Zhou](https://www.xzhou.me/),
 [Bingyi Kang](https://bingykang.github.io/)  
-> Arxiv 2024
+> CVPR 2025
 
 ![teaser](assets/teaser.gif)
 
