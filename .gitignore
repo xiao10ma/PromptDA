@@ -188,3 +188,5 @@ glove
 *.ipynb
 *.ply
 3rdparty
+
+*.ckpt
